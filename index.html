@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>TipsNote : GitHub Pages Sample</title>
+<script>
+    // enable repro.js only when loading this HTML by your app's WebView
+    window.repro = window.repro || {};
+    window.repro.isInAppBrowser = /MY_CUSTOM_USER_AGENT/.test(navigator.userAgent);
+  </script>
+  <script src="//cdn.reproio.com/js/v4/repro.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.css">
 </head>
-
 <body>
 <main>
   <h1>GitHub Pages のサンプルです</h1>
@@ -14,6 +19,12 @@
 
 <script>
 console.log('GitHub Pages Sample');
+
+// Custom event
+repro.track("Finished tutorial");
+
+// Custom event with properties
+repro.track("user review", { rating: 3 });                                                                                                                                                                                                                                                                                                                                                                                                       
 </script>
 </body>
 </html>
