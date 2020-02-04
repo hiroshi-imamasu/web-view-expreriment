@@ -9,12 +9,73 @@
     //window.repro.isInAppBrowser = /MY_CUSTOM_USER_AGENT/.test(navigator.userAgent);
   </script>
   <script src="//cdn.reproio.com/js/v4/repro.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    // Target keywords that you want to search.
+var TARGET_KEYWORDS = ["履歴紹介", "お得", "口座", "電気"];
+
+// Enable repro.js only when loading this HTML by your app's WebView
+window.repro = window.repro || {};
+window.repro.isInAppBrowser = /MY_CUSTOM_USER_AGENT/.test(navigator.userAgent);
+
+// Poyfill for IE 
+if (window.NodeList && !NodeList.prototype.forEach) {
+    NodeList.prototype.forEach = Array.prototype.forEach;
+} 
+
+
+/**
+ * @param { String } targetDomElement 
+ *     - example.  "div .api_info dl dd"
+ * @param String[] targetKeywords 
+ *     - example. ["履歴紹介","銀行"]
+ * @returns void
+ */
+
+function findWordsInDomElement(targetDomElement,targetKeywords) {
+        // Get related Nodes and Check whether the key words is inculded for each node. 
+        document.querySelectorAll(targetDomElement) // This part may change.
+        .forEach(function(elem) {
+            targetKeywords.forEach(function(keyword) {
+                if(elem.indexOf(keyword) > -1)  {
+                    // Fire repro's custom event
+                    console.log ("track works!");
+                    repro.track("Find keyword!");
+                    return;
+                }
+                return;
+            });
+        });
+    return;
+}
+
+
+
+var t0 = performance.now();
+
+findWordsInDomElement("div .api_info dl dd", TARGET_KEYWORDS)
+ 
+var t1 = performance.now();
+
+console.log("Call to findWordsInDomElement took " + (t1 - t0) + " milliseconds.");
+</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.css">
 </head>
 <body>
 <main>
   <h1>GitHub Pages のサンプルです</h1>
   <a href="http://www.tam-tam.co.jp/tipsnote/"><button>TipsNote に戻る</button></a>
+  <div>
+    <div class=".api_info">
+      <dl>
+        <dd>
+          <a>履歴紹介</a>
+        </dd>
+        <dd>
+            <a>電気</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
 </main>
 
 <script>
