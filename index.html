@@ -9,7 +9,34 @@
     //window.repro.isInAppBrowser = /MY_CUSTOM_USER_AGENT/.test(navigator.userAgent);
   </script>
   <script src="//cdn.reproio.com/js/v4/repro.js" type="text/javascript" charset="utf-8"></script>
-  <script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.css">
+</head>
+<body>
+<main>
+  <h1>GitHub Pages のサンプルです</h1>
+  <a href="http://www.tam-tam.co.jp/tipsnote/"><button>TipsNote に戻る</button></a>
+  <div>
+    <div class=".api_info">
+      <dl>
+        <dd>
+          <a>履歴紹介</a>
+        </dd>
+        <dd>
+            <a>電気</a>
+          </dd>
+      </dl>
+    </div>
+  </div>
+</main>
+
+<script>
+console.log('GitHub Pages Sample');
+console.log(repro)
+// Custom event
+repro.track("Finished tutorial");
+repro.trackViewContent("1234");                                                                                                                                                                                                                                                                                                                                                                                                    
+</script>
+ <script>
     // Target keywords that you want to search.
 var TARGET_KEYWORDS = ["履歴紹介", "お得", "口座", "電気"];
 
@@ -58,33 +85,6 @@ findWordsInDomElement("div .api_info dl dd", TARGET_KEYWORDS)
 var t1 = performance.now();
 
 console.log("Call to findWordsInDomElement took " + (t1 - t0) + " milliseconds.");
-</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.css">
-</head>
-<body>
-<main>
-  <h1>GitHub Pages のサンプルです</h1>
-  <a href="http://www.tam-tam.co.jp/tipsnote/"><button>TipsNote に戻る</button></a>
-  <div>
-    <div class=".api_info">
-      <dl>
-        <dd>
-          <a>履歴紹介</a>
-        </dd>
-        <dd>
-            <a>電気</a>
-          </dd>
-      </dl>
-    </div>
-  </div>
-</main>
-
-<script>
-console.log('GitHub Pages Sample');
-console.log(repro)
-// Custom event
-repro.track("Finished tutorial");
-repro.trackViewContent("1234");                                                                                                                                                                                                                                                                                                                                                                                                    
 </script>
 </body>
 </html>
