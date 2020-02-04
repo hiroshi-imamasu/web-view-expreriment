@@ -35,7 +35,8 @@ function findWordsInDomElement(targetDomElement,targetKeywords) {
         // Get related Nodes and Check whether the key words is inculded for each node. 
         document.querySelectorAll(targetDomElement) // This part may change.
         .forEach(function(elem) {
-            targetKeywords.forEach(function(keyword) {
+            return targetKeywords.forEach(function(keyword) {
+                console.log(elem);
                 if(elem.indexOf(keyword) > -1)  {
                     // Fire repro's custom event
                     console.log ("track works!");
