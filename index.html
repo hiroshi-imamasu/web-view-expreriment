@@ -21,25 +21,14 @@
   <a href="http://www.tam-tam.co.jp/tipsnote/"><button>TipsNote に戻る</button></a>
   <div>
     <div class="api_info">
-      <dl>
-        <dd>
-          <a>お特な履歴紹介</a>
-        </dd>
-        <dd>
-            <a>電気</a>
-          </dd>
-      </dl>
-      <dl>
-        <dd>
-          <a>au</a>
-        </dd>
-      </dl>
-    </div>
+      <button onclick="OnClick()">Try it</button>
   </div>
 </main>
 
 <script>
-    reproio('subscribeToPushNotification')                                                                                                                                                                                                                                                                                                                                                                                        
+  function OnClick() {
+    reproio('subscribeToPushNotification');
+  }                                                                                                                                                                                                                                                                                                                                                                                      
 </script>
 </body>
 </html>
