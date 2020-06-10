@@ -16,14 +16,19 @@
   <h1>GitHub Pages のサンプルです</h1>
   <a href="http://www.tam-tam.co.jp/tipsnote/"><button>TipsNote に戻る</button></a>
   <div>
-    <div class=".api_info">
+    <div class="api_info">
       <dl>
         <dd>
-          <a>履歴紹介</a>
+          <a>お特な履歴紹介</a>
         </dd>
         <dd>
             <a>電気</a>
           </dd>
+      </dl>
+      <dl>
+        <dd>
+          <a>au</a>
+        </dd>
       </dl>
     </div>
   </div>
@@ -38,7 +43,7 @@ repro.trackViewContent("1234");
 </script>
  <script>
     // Target keywords that you want to search.
-var TARGET_KEYWORDS = ["履歴紹介", "お得", "口座", "電気"];
+var TARGET_KEYWORDS = ["履歴紹介", "お得", "口座", "電気", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "N", "O", "Q", "R", "S", "au"];
 
 // Enable repro.js only when loading this HTML by your app's WebView
 window.repro = window.repro || {};
@@ -59,31 +64,25 @@ if (window.NodeList && !NodeList.prototype.forEach) {
  */
 
 function findWordsInDomElement(targetDomElement,targetKeywords) {
+        console.log("function fired!!")
         // Get related Nodes and Check whether the key words is inculded for each node. 
         document.querySelectorAll(targetDomElement) // This part may change.
         .forEach(function(elem) {
-            return targetKeywords.forEach(function(keyword) {
-                console.log(elem);
-                if(elem.indexOf(keyword) > -1)  {
+            targetKeywords.forEach(function(keyword) {
+                if(elem.innerText.indexOf(keyword) > -1)  {
                     // Fire repro's custom event
-                    console.log ("track works!");
+                    console.log("find keywords")
                     repro.track("Find keyword!");
-                    return;
                 }
-                return;
             });
         });
-    return;
 }
 
 
 
 var t0 = performance.now();
-
-findWordsInDomElement("div .api_info dl dd", TARGET_KEYWORDS)
- 
+document.addEventListener("DOMContentLoaded", findWordsInDomElement("div .api_info dl dd", TARGET_KEYWORDS))
 var t1 = performance.now();
-
 console.log("Call to findWordsInDomElement took " + (t1 - t0) + " milliseconds.");
 </script>
 </body>
