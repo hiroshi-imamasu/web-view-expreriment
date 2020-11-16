@@ -13,7 +13,8 @@
   <script>
     !function(o,e,n){var r=[];if(window.reproio)console.info("Repro Web SDK was loaded more than once");else{window.reproio=function(){r.push(arguments)};var i=o.createElement(e),t=o.getElementsByTagName(e)[0];i.src="https://cdn.reproio.com/web/v2/repro-sdk.min.js",i.async=!0,i.crossOrigin="",i.onload=function(){window.reproio("setSnippetVersion","2.1"),r.forEach(function(o){window.reproio.apply(window.reproio,o)})},t.parentNode.insertBefore(i,t)}}(document,"script");
     reproio("setUserID", "12398784934");
-    reproio("setup", "94ca9786-c6d3-4188-bf68-3693f13f9065");
+    reproio("setup", "94ca9786-c6d3-4188-bf68-3693f13f9065",
+        { linker_domains: ["evening-temple-31726.herokuapp.com", "hiroshi-imamasu.github.io"] });
     reproio("track","PageView");
 </script>
 
